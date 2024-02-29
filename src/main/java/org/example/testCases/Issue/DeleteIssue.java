@@ -15,19 +15,23 @@ public class DeleteIssue extends Issue implements Runnable {
         super(webDriver);
     }
 
+    private static void clickMoreButton(WebDriverWait wait) {
+        WebElement moreButton;
+        moreButton = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
+        moreButton.click();
+    }
+
     @Override
     public void run() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-        WebElement moreButton = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
+
         // Handle exception:
         try {
-            moreButton.click();
+            clickMoreButton(wait);
         } catch (StaleElementReferenceException e) {
             e.getMessage();
-            moreButton = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
-            moreButton.click();
+            clickMoreButton(wait);
         }
 
         WebElement deleteButton = wait.until(
