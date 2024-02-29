@@ -21,7 +21,6 @@ public class DeleteIssue extends BaseTestCase implements Runnable {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         WebElement moreButton = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
-        moreButton.click();
         // Handle exception:
         try {
             moreButton.click();
