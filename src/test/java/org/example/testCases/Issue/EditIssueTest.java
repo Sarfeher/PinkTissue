@@ -34,7 +34,6 @@ class EditIssueTest {
     @AfterEach
     void tearDown() {
         DeleteIssue deleteIssue = new DeleteIssue(webDriver);
-        searchIssue.run();
         deleteIssue.run();
 
         webDriver.quit();
