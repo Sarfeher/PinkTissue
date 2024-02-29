@@ -1,7 +1,7 @@
 package org.example.testCases.LoginLogout;
 
 import org.example.testCases.Runnable;
-import org.example.testCases.TestCase;
+import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginWith3TimesWrongPassword extends TestCase implements Runnable {
+public class LoginWith3TimesWrongPassword extends BaseTestCase implements Runnable {
     public static final String USER_NAME = "automation74";
     public static final String USER_PASSWORD = "wrongPassword";
     private static final String URL = "https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FRapidBoard.jspa%3FrapidView%3D3%26projectKey%3DMTP";
