@@ -16,23 +16,20 @@ public class DeleteIssue extends BaseTestCase implements Runnable {
         super(webDriver);
     }
 
-    private static void clickMoreButton(WebDriverWait wait) {
-        WebElement moreButton;
-        moreButton = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
-        moreButton.click();
-    }
-
     @Override
     public void run() {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
+        WebElement moreButton = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
+        moreButton.click();
         // Handle exception:
         try {
-            clickMoreButton(wait);
+            moreButton.click();
         } catch (StaleElementReferenceException e) {
             e.getMessage();
-            clickMoreButton(wait);
+            moreButton = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
+            moreButton.click();
         }
 
         WebElement deleteButton = wait.until(

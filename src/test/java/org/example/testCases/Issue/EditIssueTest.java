@@ -46,7 +46,7 @@ class EditIssueTest {
         EditIssue editIssue = new EditIssue(webDriver);
         // When
         editIssue.run();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         WebElement popUpWindow = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector(".aui-message.closeable.aui-message-success.aui-will-close")));
