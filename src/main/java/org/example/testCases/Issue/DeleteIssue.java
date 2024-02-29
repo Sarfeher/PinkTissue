@@ -1,6 +1,7 @@
 package org.example.testCases.Issue;
 
 import org.example.testCases.Runnable;
+import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class DeleteIssue extends Issue implements Runnable {
+public class DeleteIssue extends BaseTestCase implements Runnable {
     public DeleteIssue(WebDriver webDriver) {
         super(webDriver);
     }

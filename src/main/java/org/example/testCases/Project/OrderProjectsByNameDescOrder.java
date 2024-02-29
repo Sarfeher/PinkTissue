@@ -1,11 +1,12 @@
 package org.example.testCases.Project;
 
 import org.example.testCases.Runnable;
+import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class OrderProjectsByNameDescOrder extends Project implements Runnable {
+public class OrderProjectsByNameDescOrder extends BaseTestCase implements Runnable {
 
     public OrderProjectsByNameDescOrder(WebDriver webDriver) {
         super(webDriver);

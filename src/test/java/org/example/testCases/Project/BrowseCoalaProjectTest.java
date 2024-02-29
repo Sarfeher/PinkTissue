@@ -1,6 +1,6 @@
 package org.example.testCases.Project;
 
-import org.example.WebDriverProvider;
+import org.example.testCases.WebDriverProvider;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

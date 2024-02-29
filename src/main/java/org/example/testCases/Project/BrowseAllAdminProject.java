@@ -1,10 +1,11 @@
 package org.example.testCases.Project;
 
+import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BrowseAllAdminProject extends Project implements Runnable {
+public class BrowseAllAdminProject extends BaseTestCase implements Runnable {
 
     public BrowseAllAdminProject(WebDriver webDriver) {
         super(webDriver);

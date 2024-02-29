@@ -2,6 +2,7 @@ package org.example.testCases.Issue;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.example.testCases.Runnable;
+import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CreateIssue extends Issue implements Runnable {
+public class CreateIssue extends BaseTestCase implements Runnable {
     private final Dotenv dotenv = Dotenv.load();
 
     public CreateIssue(WebDriver webDriver) {
