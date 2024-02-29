@@ -1,11 +1,11 @@
-package org.example.testCases.Issue;
+package org.example.testCases;
 
 import org.openqa.selenium.WebDriver;
 
-public abstract class Issue {
+public abstract class TestCase {
     protected final WebDriver webDriver;
 
-    public Issue(WebDriver webDriver) {
+    public TestCase(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 }

@@ -1,6 +1,7 @@
 package org.example.testCases.Issue;
 
 import org.example.testCases.Runnable;
+import org.example.testCases.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class EditIssue extends Issue implements Runnable {
+public class EditIssue extends TestCase implements Runnable {
     public EditIssue(WebDriver webDriver) {
         super(webDriver);
     }

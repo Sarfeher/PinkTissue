@@ -1,11 +1,12 @@
 package org.example.testCases.LoginLogout;
 
 import org.example.testCases.Runnable;
+import org.example.testCases.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SuccessfulLogOut extends LogIn implements Runnable {
+public class SuccessfulLogOut extends TestCase implements Runnable {
     private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
 
     public SuccessfulLogOut(WebDriver webDriver) {
