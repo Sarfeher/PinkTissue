@@ -16,7 +16,6 @@ public class SuccessfulLogin extends BaseTestCase implements Runnable {
         super(webDriver);
     }
 
-
     @Override
     public void run() {
         webDriver.navigate().to(URL);
