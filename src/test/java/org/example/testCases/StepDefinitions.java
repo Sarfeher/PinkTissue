@@ -26,5 +26,6 @@ public class StepDefinitions {
     public void i_should_be_logged_in_successfully() {
         WebElement userOption = webDriver.findElement(By.id("user-options"));
         Assertions.assertNotNull(userOption);
+        webDriver.quit();
     }
 }
