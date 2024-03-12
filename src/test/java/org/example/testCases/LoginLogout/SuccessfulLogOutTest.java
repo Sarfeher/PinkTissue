@@ -8,9 +8,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 class SuccessfulLogOutTest {
     private WebDriver webDriver;
+    @FindBy(id = "user-options") private WebElement userOptions;
 
     @BeforeEach
     public void setup(){
@@ -20,12 +22,10 @@ class SuccessfulLogOutTest {
     }
 
     @Test
-    // TODO: rename test to more accurate
-    public void test(){
+    public void successfulLogOutTest(){
         SuccessfulLogOut successfulLogOut = new SuccessfulLogOut(webDriver);
         successfulLogOut.run();
 
-        WebElement userOptions = webDriver.findElement(By.id("user-options"));
         Assertions.assertNotNull(userOptions);
     }
 

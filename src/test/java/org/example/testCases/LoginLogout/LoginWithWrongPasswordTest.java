@@ -8,15 +8,20 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import static org.example.testCases.LoginLogout.LoginWithWrongPassword.LOGIN_URL;
 
 class LoginWithWrongPasswordTest {
 
     private WebDriver webDriver;
+    @FindBy(xpath = "//*[@id='login-form']/div[1]/div[1]") WebElement errorMessage;
 
 
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
+        webDriver.navigate().to(LOGIN_URL);
     }
 
     @Test
@@ -24,8 +29,6 @@ class LoginWithWrongPasswordTest {
         LoginWithWrongPassword loginWithWrongPassword = new LoginWithWrongPassword(webDriver);
 
         loginWithWrongPassword.run();
-
-        WebElement errorMessage = webDriver.findElement(By.xpath("//*[@id='login-form']/div[1]/div[1]"));
 
         Assertions.assertTrue(errorMessage.isDisplayed());
     }

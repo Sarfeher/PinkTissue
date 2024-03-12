@@ -5,22 +5,21 @@ import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class SuccessfulLogOut extends BaseTestCase implements Runnable {
-    private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
+public class SuccessfulLogOut extends BaseTestCase implements Runnable{
+    public static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
+    @FindBy(id = "header-details-user-fullname") private WebElement dropDown;
+    @FindBy(id = "log_out") private WebElement logOutButton;
 
     public SuccessfulLogOut(WebDriver webDriver) {
         super(webDriver);
     }
 
-
     @Override
     public void run() {
         webDriver.navigate().to(URL);
-        WebElement dropDown = webDriver.findElement(By.id("header-details-user-fullname"));
         dropDown.click();
-
-        WebElement logOutButton = webDriver.findElement(By.id("log_out"));
         logOutButton.click();
     }
 }

@@ -8,23 +8,27 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import static org.example.testCases.LoginLogout.LoginWith3TimesWrongPassword.LOGIN_URL;
 
 class LoginWith3TimesWrongPasswordTest {
     private WebDriver webDriver;
+    @FindBy(id = "captcha") private WebElement captcha;
 
 
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
+        webDriver.navigate().to(LOGIN_URL);
+
     }
 
     @Test
-    public void test() {
+    public void Login3TimesWrongPasswordTest() {
         LoginWith3TimesWrongPassword loginWith3TimesWrongPassword = new LoginWith3TimesWrongPassword(webDriver);
 
         loginWith3TimesWrongPassword.run();
-
-        WebElement captcha = webDriver.findElement(By.id("captcha"));
 
         Assertions.assertTrue(captcha.isDisplayed());
     }

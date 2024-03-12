@@ -8,22 +8,22 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 class LoginEmptyFieldsTest {
     private WebDriver webDriver;
-
+    @FindBy(xpath = "//*[@id='login-form']/div[1]/div[1]") private WebElement errorMessage;
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
+        webDriver.navigate().to(LoginEmptyFields.LOGIN_URL);
     }
 
+
     @Test
-    // TODO: rename test to more accurate
-    public void test() {
+    public void loginWithEmptyFieldsTest() {
         LoginEmptyFields loginEmptyFields = new LoginEmptyFields(webDriver);
         loginEmptyFields.run();
-        WebElement errorMessage = webDriver.findElement(By.xpath("//*[@id='login-form']/div[1]/div[1]"));
-
         Assertions.assertTrue(errorMessage.isDisplayed());
     }
 
