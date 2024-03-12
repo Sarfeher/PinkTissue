@@ -15,11 +15,11 @@ class SuccessfulLoginTest {
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
+        webDriver.navigate().to(SuccessfulLogin.URL);
     }
 
     @Test
-    // TODO: rename test to more accurate
-    public void test() {
+    public void successfulLoginTest() {
         SuccessfulLogin exampleTest = new SuccessfulLogin(webDriver);
 
         exampleTest.run();
