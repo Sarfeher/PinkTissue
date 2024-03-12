@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class BaseTestCase {
+    public static final int TIMEOUT = 20;
     protected final WebDriver webDriver;
     protected final WebDriverWait wait;
 
     public BaseTestCase(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(TIMEOUT));
         PageFactory.initElements(webDriver, this);
     }
 }
