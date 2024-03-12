@@ -9,9 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 class OrderProjectsByNameDescOrderTest {
     private WebDriver webDriver;
+    @FindBy(xpath = "//*[@id=\"projects\"]/div/table/tbody/tr[1]/td[1]/a") private WebElement projectFilterField;
 
     @BeforeEach
     public void setup() {
@@ -27,7 +29,6 @@ class OrderProjectsByNameDescOrderTest {
         OrderProjectsByNameDescOrder orderProjectsByNameDescOrder = new OrderProjectsByNameDescOrder(webDriver);
         orderProjectsByNameDescOrder.run();
 
-        WebElement projectFilterField = webDriver.findElement(By.xpath("//*[@id=\"projects\"]/div/table/tbody/tr[1]/td[1]/a"));
         String expected = "Use It To Practice Project";
 
         Assertions.assertEquals(expected, projectFilterField.getText());

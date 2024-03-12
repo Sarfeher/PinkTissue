@@ -1,7 +1,9 @@
 package org.example.testCases.Issue;
 
-import org.example.testCases.WebDriverProvider;
+
+import org.example.testCases.LoginLogout.SuccessfulLogOut;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
+import org.example.testCases.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,8 +18,8 @@ class CreateIssueTest {
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
-        SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
-        logIn.run();
+        SuccessfulLogin successfulLogin = new SuccessfulLogin(webDriver);
+        successfulLogin.run();
     }
 
     @AfterEach

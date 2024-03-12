@@ -5,8 +5,10 @@ import org.example.testCases.BaseTestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class OrderProjectsByNameDescOrder extends BaseTestCase implements Runnable {
+    @FindBy(xpath = "//*[@id=\"projects\"]/div/table/thead/tr/th[1]") private WebElement orderButtonByName;
 
     public OrderProjectsByNameDescOrder(WebDriver webDriver) {
         super(webDriver);
@@ -14,7 +16,6 @@ public class OrderProjectsByNameDescOrder extends BaseTestCase implements Runnab
 
     @Override
     public void run() {
-        WebElement orderButtonByName = webDriver.findElement(By.xpath("//*[@id=\"projects\"]/div/table/thead/tr/th[1]"));
         orderButtonByName.click();
     }
 }

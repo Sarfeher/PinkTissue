@@ -6,9 +6,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 class BrowseCoalaProjectTest {
     private WebDriver webDriver;
@@ -18,19 +26,20 @@ class BrowseCoalaProjectTest {
         webDriver = WebDriverProvider.setupWebDriver();
         SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
         BrowseProject browseProject = new BrowseProject(webDriver);
+        webDriver.navigate().to(SuccessfulLogin.URL);
         logIn.run();
         browseProject.run();
     }
 
-    @Test
-    public void test() {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/project.csv", numLinesToSkip = 1)
+    public void test(String projectName) {
         BrowseCoalaProject browseCoalaProject = new BrowseCoalaProject(webDriver);
-        browseCoalaProject.run();
+        browseCoalaProject.run(projectName);
 
         WebElement projectFilterField = webDriver.findElement(By.xpath("//*[@id=\"project-name-val\"]"));
-        String expected = "COALA project";
 
-        Assertions.assertEquals(expected, projectFilterField.getText());
+        Assertions.assertEquals(projectName, projectFilterField.getText());
     }
 
     @AfterEach
