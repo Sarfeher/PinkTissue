@@ -6,13 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 class DeleteIssueTest {
     private WebDriver webDriver;
@@ -38,13 +32,12 @@ class DeleteIssueTest {
 
     @Test
     public void deleteIssueSuccessfully() {
-        // Given
+        // Arrange
         DeleteIssue deleteIssue = new DeleteIssue(webDriver);
-        // When
+        // Act
         deleteIssue.run();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-        WebElement popUpWindow = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".aui-message.closeable.aui-message-success.aui-will-close")));
-        // Then
-        Assertions.assertNotNull(popUpWindow);
+        boolean isPopUpWindow = deleteIssue.isPopUpWindow();
+        // Assert
+        Assertions.assertTrue(isPopUpWindow);
     }
 }
