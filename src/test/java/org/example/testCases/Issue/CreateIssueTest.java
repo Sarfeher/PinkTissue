@@ -1,14 +1,12 @@
 package org.example.testCases.Issue;
 
-import org.example.testCases.WebDriverProvider;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
+import org.example.testCases.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 class CreateIssueTest {
     private WebDriver webDriver;
@@ -32,13 +30,12 @@ class CreateIssueTest {
 
     @Test
     public void createIssueSuccessfully() {
-        // Given
+        // Arrange
         CreateIssue createIssue = new CreateIssue(webDriver);
-        // When
+        // Act
         createIssue.run();
-        WebElement header = webDriver.findElement(By.id("header"));
-        String headerAttribute = header.getAttribute("aria-hidden");
-        // Then
+        String headerAttribute = createIssue.getHeader();
+        // Assert
         Assertions.assertNull(headerAttribute);
     }
 }
