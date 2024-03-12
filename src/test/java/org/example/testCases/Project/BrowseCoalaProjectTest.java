@@ -36,16 +36,12 @@ class BrowseCoalaProjectTest {
     public void test(String projectName) {
         BrowseCoalaProject browseCoalaProject = new BrowseCoalaProject(webDriver);
         browseCoalaProject.run(projectName);
+
         WebElement filteredElement = webDriver.findElement(By.xpath("//*[@id='projects']/div/table/tbody/tr/td[1]/a"));
-        //WebElement projectFilterField = webDriver.findElement(By.xpath("//*[@id=\"project-name-val\"]"));
-        //Assertions.assertEquals(projectName, projectFilterField.getText());
-        System.out.println(projectName + " project name");
-        System.out.println(filteredElement.getText() + " get text");
-        System.out.println(filteredElement);
-        System.out.println(filteredElement.getAttribute("title") + " ez a title");
+
         Assertions.assertEquals(projectName, filteredElement.getText());
     }
-    //*[@id="projects"]/div/table/tbody/tr/td[1]/a/text()
+
 
     @AfterEach
     public void tearDown() {
@@ -55,7 +51,7 @@ class BrowseCoalaProjectTest {
             System.err.println("Thread sleep interrupted: " + e.getMessage());
             Thread.currentThread().interrupt();
         } finally {
-           // webDriver.quit();
+            webDriver.quit();
         }
     }
 }
