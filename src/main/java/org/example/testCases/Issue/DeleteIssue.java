@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DeleteIssue extends BaseTestCase implements Runnable {
-    @FindBy(xpath = "//*[@id=\"delete-issue\"]/a/span")
+    @FindBy(id = "delete-issue")
     private WebElement deleteButton;
     @FindBy(id = "delete-issue-submit")
     private WebElement deleteConfirm;
