@@ -21,14 +21,9 @@ public class BrowseProject extends BaseTestCase implements Runnable {
 
     @Override
     public void run() {
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(1));
-
         wait.until(ExpectedConditions.visibilityOf(projectButton));
         projectButton.click();
-
         wait.until(ExpectedConditions.visibilityOf(viewAllProjectButton));
         viewAllProjectButton.click();
-
     }
 }

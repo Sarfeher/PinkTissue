@@ -32,8 +32,6 @@ public class LoginWith3TimesWrongPassword extends BaseTestCase implements Runnab
 
     @Override
     public void run() {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(1));
-
         loginWithWrongPassword();
         webDriver.navigate().to(LOGIN_URL);
 
