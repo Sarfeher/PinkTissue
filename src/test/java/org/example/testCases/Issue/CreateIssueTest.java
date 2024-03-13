@@ -15,6 +15,7 @@ class CreateIssueTest {
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
+        webDriver.navigate().to(SuccessfulLogin.URL);
         logIn.run();
     }
 

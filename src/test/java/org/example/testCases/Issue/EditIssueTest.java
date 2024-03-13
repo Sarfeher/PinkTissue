@@ -16,7 +16,7 @@ class EditIssueTest {
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
-
+        webDriver.navigate().to(SuccessfulLogin.URL);
         logIn.run();
 
         CreateIssue createIssue = new CreateIssue(webDriver);
