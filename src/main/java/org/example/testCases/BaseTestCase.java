@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class BaseTestCase {
-    public static final int TIMEOUT = 20;
+    private static final int TIMEOUT = 20;
     protected final WebDriver webDriver;
     protected final WebDriverWait wait;
 

@@ -19,6 +19,7 @@ public class BrowseCoalaProject extends BaseTestCase {
     }
 
     public void run(String projectName) {
+        // TODO: Click this element, has to be solved
         searchBar.sendKeys(projectName);
         wait.until(ExpectedConditions.attributeToBe(projectNameInTable, "title", projectName));
     }
