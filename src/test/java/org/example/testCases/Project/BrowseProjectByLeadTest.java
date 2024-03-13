@@ -5,14 +5,11 @@ import org.example.testCases.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-class BrowseAllAdminProjectTest {
+class BrowseProjectByLeadTest {
 
     private WebDriver webDriver;
 
@@ -21,21 +18,20 @@ class BrowseAllAdminProjectTest {
         webDriver = WebDriverProvider.setupWebDriver();
         SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
         BrowseProject browseProject = new BrowseProject(webDriver);
+        webDriver.navigate().to(SuccessfulLogin.URL);
         logIn.run();
         browseProject.run();
     }
 
-    @Test
-    public void test() {
-        BrowseAllAdminProject browseAllAdminProject = new BrowseAllAdminProject(webDriver);
-        browseAllAdminProject.run();
+    @ParameterizedTest
+    @CsvFileSource(resources = "/projectLead.csv", numLinesToSkip = 1)
+    public void test(String projectLead) {
+        BrowseProjectByLead browseProjectByLead = new BrowseProjectByLead(webDriver);
+        browseProjectByLead.run(projectLead);
 
-        int sizeOfAdmin = webDriver.findElements(By.xpath("//*[text()='Admin']")).size();
-        WebElement tableBody = webDriver.findElement(By.className("projects-list"));
-        List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
+        boolean isEqual = browseProjectByLead.isEqual();
 
-        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1);
-
+        Assertions.assertTrue(isEqual);
     }
 
     @AfterEach

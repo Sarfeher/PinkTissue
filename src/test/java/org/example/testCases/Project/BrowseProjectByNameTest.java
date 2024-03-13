@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-class BrowseCoalaProjectTest {
+class BrowseProjectByNameTest {
     private WebDriver webDriver;
 
     @BeforeEach
@@ -27,8 +27,8 @@ class BrowseCoalaProjectTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/project.csv", numLinesToSkip = 1)
     public void test(String projectName) {
-        BrowseCoalaProject browseCoalaProject = new BrowseCoalaProject(webDriver);
-        browseCoalaProject.run(projectName);
+        BrowseProjectByName browseProjectByName = new BrowseProjectByName(webDriver);
+        browseProjectByName.run(projectName);
 
         WebElement filteredElement = webDriver.findElement(By.xpath("//*[@id='projects']/div/table/tbody/tr/td[1]/a"));
 
