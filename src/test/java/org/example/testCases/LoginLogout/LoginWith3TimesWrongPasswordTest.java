@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,14 +13,13 @@ import static org.example.testCases.LoginLogout.LoginWith3TimesWrongPassword.LOG
 
 class LoginWith3TimesWrongPasswordTest {
     private WebDriver webDriver;
-    @FindBy(id = "captcha") private WebElement captcha;
-
+    @FindBy(id = "captcha")
+    private WebElement captcha;
 
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
         webDriver.navigate().to(LOGIN_URL);
-
     }
 
     @Test
@@ -44,5 +42,4 @@ class LoginWith3TimesWrongPasswordTest {
             webDriver.quit();
         }
     }
-
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,9 +13,9 @@ import static org.example.testCases.LoginLogout.LoginWithWrongPassword.LOGIN_URL
 
 class LoginWithWrongPasswordTest {
 
+    @FindBy(xpath = "//*[@id='login-form']/div[1]/div[1]")
+    private WebElement errorMessage;
     private WebDriver webDriver;
-    @FindBy(xpath = "//*[@id='login-form']/div[1]/div[1]") WebElement errorMessage;
-
 
     @BeforeEach
     public void setup() {

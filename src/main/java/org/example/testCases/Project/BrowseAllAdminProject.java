@@ -13,9 +13,7 @@ public class BrowseAllAdminProject extends BaseTestCase implements Runnable {
 
     @Override
     public void run() {
-
         WebElement searchBar = webDriver.findElement(By.xpath("//*[@id='project-filter-text']"));
         searchBar.sendKeys("Admin");
-
     }
 }

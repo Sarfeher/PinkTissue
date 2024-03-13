@@ -1,7 +1,7 @@
 package org.example.testCases.Issue;
 
-import org.example.testCases.Runnable;
 import org.example.testCases.BaseTestCase;
+import org.example.testCases.Runnable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
