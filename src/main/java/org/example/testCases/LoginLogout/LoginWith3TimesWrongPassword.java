@@ -18,6 +18,8 @@ public class LoginWith3TimesWrongPassword extends BaseTestCase implements Runnab
     private WebElement userPassword;
     @FindBy(id = "login-form-submit")
     private WebElement button;
+    @FindBy(id = "captcha")
+    private WebElement captcha;
 
     public LoginWith3TimesWrongPassword(WebDriver webDriver) {
         super(webDriver);
@@ -26,20 +28,27 @@ public class LoginWith3TimesWrongPassword extends BaseTestCase implements Runnab
     private void loginWithWrongPassword() {
         userName.sendKeys(USER_NAME);
         userPassword.sendKeys(USER_PASSWORD);
-
         button.click();
+    }
+
+    private void loginWithWrongPasswordAndNavigateBackToLoginUrl() {
+        loginWithWrongPassword();
+        webDriver.navigate().to(LOGIN_URL);
+    }
+
+    public boolean isCaptchaDisplayed(){
+        return captcha.isDisplayed();
     }
 
     @Override
     public void run() {
-        loginWithWrongPassword();
-        webDriver.navigate().to(LOGIN_URL);
+        loginWithWrongPasswordAndNavigateBackToLoginUrl();
 
-        loginWithWrongPassword();
-        webDriver.navigate().to(LOGIN_URL);
+        loginWithWrongPasswordAndNavigateBackToLoginUrl();
 
         loginWithWrongPassword();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("captcha")));
     }
+
 }
