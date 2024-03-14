@@ -13,8 +13,6 @@ import static org.example.testCases.LoginLogout.LoginWith3TimesWrongPassword.LOG
 
 class LoginWith3TimesWrongPasswordTest {
     private WebDriver webDriver;
-    @FindBy(id = "captcha")
-    private WebElement captcha;
 
     @BeforeEach
     public void setup() {
@@ -28,7 +26,9 @@ class LoginWith3TimesWrongPasswordTest {
 
         loginWith3TimesWrongPassword.run();
 
-        Assertions.assertTrue(captcha.isDisplayed());
+        boolean isCaptchaDisplayed = loginWith3TimesWrongPassword.isCaptchaDisplayed();
+
+        Assertions.assertTrue(isCaptchaDisplayed);
     }
 
     @AfterEach
