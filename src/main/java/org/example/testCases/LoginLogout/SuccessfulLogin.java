@@ -25,5 +25,6 @@ public class SuccessfulLogin extends BaseTestCase implements Runnable {
 
         userName.sendKeys(dotenv.get("JIRA_USERNAME"));
         userPassword.sendKeys(dotenv.get("JIRA_PASSWORD"));
-        button.click();    }
+        button.click();
+    }
 }
